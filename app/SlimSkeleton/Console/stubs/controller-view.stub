@@ -4,7 +4,7 @@ namespace DummyNamespace;
 
 use Psr\Http\Message\ResponseInterface as Response;
 
-use App\Http\Controllers\Controller;
+use SlimSkeleton\Http\Controllers\Controller;
 
 class DummyClass extends Controller
 {
