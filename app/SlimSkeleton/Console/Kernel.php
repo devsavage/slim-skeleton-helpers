@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console;
+namespace SlimSkeleton\Console;
 
 class Kernel
 {
@@ -9,8 +9,8 @@ class Kernel
     ];
 
     protected $defaultCommands = [
-        \App\Console\Commands\Generator\ConsoleGeneratorCommand::class,
-        \App\Console\Commands\Generator\ControllerGeneratorCommand::class,
+        \SlimSkeleton\Console\Commands\Generator\ConsoleGeneratorCommand::class,
+        \SlimSkeleton\Console\Commands\Generator\ControllerGeneratorCommand::class,
     ];
 
     public function getCommands() 

@@ -4,7 +4,7 @@
     "type": "library",
     "autoload": {
         "psr-4": {
-            "App\\": "app/App"
+            "SlimSkeleton\\": "app/SlimSkeleton"
         },
         "files": [
             "app/helpers.php"

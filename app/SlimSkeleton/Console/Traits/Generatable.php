@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Traits;
+namespace SlimSkeleton\Console\Traits;
 
 trait Generatable
 {

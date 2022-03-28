@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console;
+namespace SlimSkeleton\Console;
 
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Console\Command\Command as SymfonyCommand;

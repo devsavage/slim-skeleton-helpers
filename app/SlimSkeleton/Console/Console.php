@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console;
+namespace SlimSkeleton\Console;
 
 use Slim\App;
 use Symfony\Component\Console\Application;

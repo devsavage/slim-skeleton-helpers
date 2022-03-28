@@ -1,5 +1,5 @@
 <?php
-namespace App\Logger;
+namespace SlimSkeleton\Logger;
 
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\RotatingFileHandler;

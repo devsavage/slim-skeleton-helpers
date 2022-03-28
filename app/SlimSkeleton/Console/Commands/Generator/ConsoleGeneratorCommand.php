@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Console\Commands\Generator;
+namespace SlimSkeleton\Console\Commands\Generator;
 
-use App\Console\Command;
-use App\Console\Traits\Generatable;
+use SlimSkeleton\Console\Command;
+use SlimSkeleton\Console\Traits\Generatable;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
