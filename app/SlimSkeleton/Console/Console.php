@@ -3,6 +3,7 @@
 namespace SlimSkeleton\Console;
 
 use Slim\App;
+use SlimSkeleton\Console\KernelInterface;
 use Symfony\Component\Console\Application;
 
 class Console extends Application
@@ -16,7 +17,7 @@ class Console extends Application
         $this->app = $app;
     }
 
-    public function boot(Kernel $kernel) 
+    public function boot(KernelInterface $kernel) 
     {
         foreach($kernel->getCommands() as $command) {
             $this->add(new $command($this->getApp()->getContainer()));
