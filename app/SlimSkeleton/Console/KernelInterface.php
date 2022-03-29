@@ -4,5 +4,5 @@ namespace SlimSkeleton\Console;
 
 interface KernelInterface
 {
-    public function getCommands();
+    public function getCommands(): array;
 }
