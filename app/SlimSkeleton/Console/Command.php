@@ -9,15 +9,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 abstract class Command extends SymfonyCommand
 {
-    protected $stubDirectory;
-
     private $input, $output;
 
     public function __construct(string $stubDirectory = null)
     {
         parent::__construct();
-        
-        $this->stubDirectory = $stubDirectory;
     }
 
     protected function configure()
@@ -72,19 +68,6 @@ abstract class Command extends SymfonyCommand
         $this->output->writeln("<error>" . $value . "</error>");
 
         return SymfonyCommand::FAILURE;
-    }
-
-    protected function getAndMoveStub($path, $stubName, $fileName, $ext = ".php")
-    {
-        if(isset($this->stubDirectory)) {
-            return false;
-        }
-
-        $stub = file_get_contents($this->stubDirectory . "/" . $stubName . ".stub");
-
-        $stubTo = $path . "/" . $fileName . $ext;
-
-        return file_put_contents($stubTo, $stub);
     }
 
     public abstract function handle(InputInterface $input, OutputInterface $output);
