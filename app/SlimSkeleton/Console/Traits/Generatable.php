@@ -4,7 +4,7 @@ namespace SlimSkeleton\Console\Traits;
 
 trait Generatable
 {
-    protected $stubDirectory = __DIR__ . "/../stubs";
+    protected $stubDir = __DIR__ . "/../stubs";
 
     public function generateStub($name, $replacements)
     {
