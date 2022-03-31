@@ -15,7 +15,14 @@ class ControllerGeneratorCommand extends Command
 
     protected $command = "make:controller";
 
-    protected $description = "Generate a new controller class";
+    protected $description = "Generate a new controller class";    
+    
+    public function __construct($container)
+    {
+        parent::__construct($container);
+
+        $this->stubDirectory = __DIR__ . "/../stubs";
+    }
 
     public function handle(InputInterface $input, OutputInterface $output)
     {

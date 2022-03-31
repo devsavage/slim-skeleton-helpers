@@ -22,7 +22,7 @@ trait Generatable
 
     public function getAndMoveStub($path, $stubName, $fileName, $ext = ".php")
     {
-        if($this->getStubDirectory()) {
+        if(!$this->getStubDirectory()) {
             return false;
         }
 
