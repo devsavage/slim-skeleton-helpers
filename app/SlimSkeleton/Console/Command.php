@@ -9,15 +9,14 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 abstract class Command extends SymfonyCommand
 {
-    protected $container, $stubDirectory;
+    protected $stubDirectory;
 
     private $input, $output;
 
-    public function __construct(ContainerInterface $container, string $stubDirectory = null)
+    public function __construct(string $stubDirectory = null)
     {
         parent::__construct();
-
-        $this->container = $container;
+        
         $this->stubDirectory = $stubDirectory;
     }
 
