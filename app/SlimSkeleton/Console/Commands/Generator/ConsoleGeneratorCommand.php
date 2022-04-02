@@ -17,10 +17,8 @@ class ConsoleGeneratorCommand extends Command
 
     protected $description = "Generate a console command class";    
     
-    public function __construct($container)
+    public function __construct()
     {
-        parent::__construct($container);
-
         $this->stubDirectory = __DIR__ . "/../../stubs";
     }
 
@@ -30,7 +28,7 @@ class ConsoleGeneratorCommand extends Command
             "DummyClass" => $this->argument("name"),
         ]);
 
-        $target = __DIR__ . "/../" . $this->argument("name") . ".php";
+        $target = $this->getRootDir() . "/app/App/Http/Console/Commands/" . $this->argument("name") . ".php";
 
         if(file_exists($target)) {
             return $this->error("Command already exists!", true);

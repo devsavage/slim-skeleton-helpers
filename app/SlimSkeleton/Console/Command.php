@@ -11,13 +11,14 @@ abstract class Command extends SymfonyCommand
 {
     private $input, $output;
 
-    protected $container;
+    protected $container, $rootDir;
 
-    public function __construct(ContainerInterface $container)
+    public function __construct(ContainerInterface $container, $rootDir)
     {
         parent::__construct();
 
         $this->container = $container;
+        $this->rootDir = $rootDir;
     }
 
     protected function configure()
@@ -103,6 +104,11 @@ abstract class Command extends SymfonyCommand
         if($end) {
             return SymfonyCommand::FAILURE;
         }
+    }
+
+    protected function getRootDir()
+    {
+        return $this->rootDir;
     }
 
     public abstract function handle(InputInterface $input, OutputInterface $output);

@@ -17,16 +17,14 @@ class ControllerGeneratorCommand extends Command
 
     protected $description = "Generate a new controller class";    
     
-    public function __construct($container)
+    public function __construct()
     {
-        parent::__construct($container);
-
         $this->stubDirectory = __DIR__ . "/../../stubs";
     }
 
     public function handle(InputInterface $input, OutputInterface $output)
     {
-        $controllerBase = __DIR__ . "/../../../Http/Controllers";
+        $controllerBase = $this->getRootDir() . "/app/App/Http/Controllers";
         $path = $controllerBase . "/";
         $namespace = "App\\Http\\Controllers";
 
@@ -49,7 +47,7 @@ class ControllerGeneratorCommand extends Command
         $target = $path . "/" . $fileName . ".php";
 
         if (file_exists($target)) {
-            return $this->error("Controller already exists!");
+            return $this->error("Controller already exists!", true);
         }
 
         if($this->option("view")) {
@@ -71,7 +69,7 @@ class ControllerGeneratorCommand extends Command
             $this->generateView($this->option("view"));
         }
 
-        return $this->info("Controller generated!"); 
+        return $this->success("Controller generated!", true); 
     }
 
     private function generateView($name) 
