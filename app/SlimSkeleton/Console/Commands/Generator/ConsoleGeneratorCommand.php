@@ -21,7 +21,7 @@ class ConsoleGeneratorCommand extends Command
     {
         parent::__construct($container);
 
-        $this->stubDirectory = __DIR__ . "/../stubs";
+        $this->stubDirectory = __DIR__ . "/../../stubs";
     }
 
     public function handle(InputInterface $input, OutputInterface $output)
