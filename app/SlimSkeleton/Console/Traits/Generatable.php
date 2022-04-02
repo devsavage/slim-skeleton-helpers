@@ -4,11 +4,11 @@ namespace SlimSkeleton\Console\Traits;
 
 trait Generatable
 {
-    public $stubDirectory = null;
+    public $defaultStubDirectory = __DIR__ . "/../stubs";
 
     private function getStubDirectory()
     {
-        return $this->stubDirectory ?: __DIR__ . "/../stubs";
+        return $this->customStubDirectory ?? $this->defaultStubDirectory;
     }
 
     public function generateStub($name, $replacements)

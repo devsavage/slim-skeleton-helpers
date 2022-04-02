@@ -16,11 +16,8 @@ class ConsoleGeneratorCommand extends Command
     protected $command = "make:command";
 
     protected $description = "Generate a console command class";    
-    
-    public function __construct()
-    {
-        $this->stubDirectory = __DIR__ . "/../../stubs";
-    }
+
+    protected $customStubDirectory = __DIR__ . "/../../stubs";
 
     public function handle(InputInterface $input, OutputInterface $output)
     {
