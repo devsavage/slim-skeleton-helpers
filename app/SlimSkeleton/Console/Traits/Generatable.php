@@ -8,7 +8,7 @@ trait Generatable
 
     private function getStubDirectory()
     {
-        return $this->stubDirectory;
+        return $this->stubDirectory ?: __DIR__ . "/../stubs";
     }
 
     public function generateStub($name, $replacements)

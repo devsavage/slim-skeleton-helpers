@@ -98,12 +98,12 @@ class ControllerGeneratorCommand extends Command
         $target = $path . "/" . $fileName . ".twig";
 
         if (file_exists($target)) {
-            return $this->error("View already exists in base resources/views directory!");
+            return $this->error("View already exists in base resources/views directory!", true);
         }
 
         file_put_contents($target, $this->generateStub("view", []));
 
-        return $this->info("View has been generated!");
+        return $this->success("View has been generated!", true);
     }
     
     private function cleanPathName($name) 

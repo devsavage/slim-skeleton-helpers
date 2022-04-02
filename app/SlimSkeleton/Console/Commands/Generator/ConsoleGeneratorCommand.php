@@ -33,12 +33,12 @@ class ConsoleGeneratorCommand extends Command
         $target = __DIR__ . "/../" . $this->argument("name") . ".php";
 
         if(file_exists($target)) {
-            return $this->error("Command already exists!");
+            return $this->error("Command already exists!", true);
         }
 
         file_put_contents($target, $stub);
 
-        return $this->info("Console command generated!");    
+        return $this->success("Console command generated!", true);    
     }
 
     protected function arguments(): array

@@ -60,13 +60,23 @@ abstract class Command extends SymfonyCommand
         }
     }
 
-    protected function info($value, $end = true)
+    protected function success($value, $end = true)
     {
         $this->output->writeln("<info>" . $value . "</info>");
 
         if($end) {
             return SymfonyCommand::SUCCESS;
         }
+    }
+
+    protected function warn($value)
+    {
+        $this->output->writeln("<comment>" . $value . "</comment>");
+    }
+
+    protected function info($value)
+    {
+        $this->output->writeln("<question>" . $value . "</question>");
     }
 
     protected function error($value, $end = true)
