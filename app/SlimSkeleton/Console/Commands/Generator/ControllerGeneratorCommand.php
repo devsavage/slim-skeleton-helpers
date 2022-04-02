@@ -21,9 +21,9 @@ class ControllerGeneratorCommand extends Command
 
     public function handle(InputInterface $input, OutputInterface $output)
     {
-        $controllerBase = $this->getRootDir() . "/app/App/Http/Controllers";
+        $controllerBase = $this->getRootDir() . "/app/" . $this->option("namespace") . "/Http/Controllers";
         $path = $controllerBase . "/";
-        $namespace = "App\\Http\\Controllers";
+        $namespace = $this->option("namespace") . "\\Http\\Controllers";
 
         $fileParts = explode("\\", trim($this->argument("name")));
 
@@ -117,6 +117,7 @@ class ControllerGeneratorCommand extends Command
     {
         return [
             ["view", "t", InputOption::VALUE_REQUIRED, "Generate a TWIG view with the provided name", null],
+            ["namespace", "ns", InputOption::VALUE_REQUIRED, "Define a namespace to use for generating controllers.", "App"]
         ];
     }
 }

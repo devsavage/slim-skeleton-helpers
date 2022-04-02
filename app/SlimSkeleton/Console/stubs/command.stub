@@ -1,6 +1,6 @@
 <?php
 
-namespace SlimSkeleton\Console\Commands;
+namespace DummyNamespace\Console\Commands;
 
 use SlimSkeleton\Console\Command;
 use Symfony\Component\Console\Input\InputOption;

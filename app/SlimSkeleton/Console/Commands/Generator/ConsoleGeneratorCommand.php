@@ -23,9 +23,10 @@ class ConsoleGeneratorCommand extends Command
     {
         $stub = $this->generateStub("command", [
             "DummyClass" => $this->argument("name"),
+            "DummyNamespace" => $this->option("namespace")
         ]);
 
-        $target = $this->getRootDir() . "/app/App/Http/Console/Commands/" . $this->argument("name") . ".php";
+        $target = $this->getRootDir() . "/app/" . $this->option("namespace") . "/Http/Console/Commands/" . $this->argument("name") . ".php";
 
         if(file_exists($target)) {
             return $this->error("Command already exists!", true);
@@ -45,6 +46,8 @@ class ConsoleGeneratorCommand extends Command
 
     protected function options() : array
     {
-        return [];
+        return [
+            ["namespace", "ns", InputOption::VALUE_REQUIRED, "Define a namespace to use for generating controllers.", "App"]
+        ];
     }
 }
