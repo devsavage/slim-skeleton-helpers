@@ -60,18 +60,22 @@ abstract class Command extends SymfonyCommand
         }
     }
 
-    protected function info($value)
+    protected function info($value, $end = true)
     {
         $this->output->writeln("<info>" . $value . "</info>");
 
-        return SymfonyCommand::SUCCESS;
+        if($end) {
+            return SymfonyCommand::SUCCESS;
+        }
     }
 
-    protected function error($value)
+    protected function error($value, $end = true)
     {
         $this->output->writeln("<error>" . $value . "</error>");
 
-        return SymfonyCommand::FAILURE;
+        if($end) {
+            return SymfonyCommand::FAILURE;
+        }
     }
 
     public abstract function handle(InputInterface $input, OutputInterface $output);
