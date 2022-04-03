@@ -28,7 +28,7 @@ trait Generatable
 
         $stub = file_get_contents($this->getStubDirectory() . "/" . $stubName . ".stub");
 
-        $stubTo = $path . $fileName . $ext;
+        $stubTo = $path . "/" . $fileName . $ext;
 
         return file_put_contents($stubTo, $stub);
     }
