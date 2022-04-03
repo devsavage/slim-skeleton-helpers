@@ -30,7 +30,7 @@ trait Generatable
 
         $stubTo = $path . $fileName . $ext;
 
-        return $this->file_force_contents($stubTo, $stub);
+        return $this->file_force_contents($stubTo, $stub, LOCK_EX);
     }
 
     private function file_force_contents($path, $data, $flags = 0)
