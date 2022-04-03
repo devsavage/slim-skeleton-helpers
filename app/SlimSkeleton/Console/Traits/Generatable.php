@@ -30,6 +30,21 @@ trait Generatable
 
         $stubTo = $path . $fileName . $ext;
 
-        return file_put_contents($stubTo, $stub);
+        return $this->file_force_contents($stubTo, $stub);
+    }
+
+    private function file_force_contents($path, $data, $flags = 0)
+    {
+        $dirParts = explode("/", $path);
+        
+        array_pop($dirParts);
+
+        $dir = implode("/", $dirParts);
+
+        if(!is_dir($dir)) {
+            mkdir($dir, 0777, true);
+        }
+
+        file_put_contents($path, $data, $flags);
     }
 }
