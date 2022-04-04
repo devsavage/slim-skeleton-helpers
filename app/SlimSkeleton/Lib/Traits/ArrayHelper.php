@@ -1,6 +1,6 @@
 <?php
 
-namespace SlimSkeleton\Lib;
+namespace SlimSkeleton\Lib\Traits;
 
 trait ArrayHelper
 {
