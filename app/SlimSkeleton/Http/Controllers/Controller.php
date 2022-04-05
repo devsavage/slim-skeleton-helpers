@@ -3,8 +3,9 @@
 namespace SlimSkeleton\Http\Controllers;
 
 use Psr\Container\ContainerInterface;
-use Psr\Http\Message\ResponseInterface as Response;
 use Slim\Interfaces\RouteParserInterface;
+use Psr\Http\Message\ResponseFactoryInterface;
+use Psr\Http\Message\ResponseInterface as Response;
 
 class Controller
 {
@@ -31,6 +32,8 @@ class Controller
 
     protected function redirect(Response $response, string $to, array $urlData = [], array $urlParams = [], string $urlQuery = null): Response
     {
+        $response = $this->_container->get(ResponseFactoryInterface::class)->createResponse(302);
+        
         if($urlQuery) {
             return $response->withHeader("Location", $this->buildUrl($this->_router->urlFor($to, $urlData, $urlParams) . $urlQuery));
         }
